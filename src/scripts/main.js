@@ -27,5 +27,16 @@ document.addEventListener('DOMContentLoaded', function () {
   }
 
   sortList(employees);
-  getEmployees(employees);
+
+  const employeeData = getEmployees(employees);
+  const employeeInfo = document.createElement('div');
+
+  employeeInfo.innerHTML = employeeData
+    .map(
+      (emp) =>
+        `<p>${emp.name} - ${emp.position} - ${emp.salary} USD - ${emp.age} lat</p>`,
+    )
+    .join('');
+
+  document.body.appendChild(employeeInfo);
 });
